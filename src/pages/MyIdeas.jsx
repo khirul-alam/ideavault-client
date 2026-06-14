@@ -15,7 +15,7 @@ const MyIdeas = () => {
   const token = localStorage.getItem("token");
 
   const loadMyIdeas = () => {
-    axios.get("http://localhost:5000/ideas", {
+    axios.get("https://ideavault-server-one.vercel.app/ideas", {
       params: { email: user.email }
     })
     .then(res => {
@@ -30,7 +30,7 @@ const MyIdeas = () => {
   // Delete
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/ideas/${deleteId}`, {
+      await axios.delete(`https://ideavault-server-one.vercel.app/ideas/${deleteId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success("Idea deleted!");
@@ -52,7 +52,7 @@ const MyIdeas = () => {
       targetAudience: form.targetAudience.value,
     };
     try {
-      await axios.put(`http://localhost:5000/ideas/${editIdea._id}`, updated, {
+      await axios.put(`https://ideavault-server-one.vercel.app/ideas/${editIdea._id}`, updated, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success("Idea updated!");

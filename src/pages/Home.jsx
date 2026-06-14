@@ -14,7 +14,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:5000/ideas/trending")
+    axios.get("https://ideavault-server-one.vercel.app/ideas/trending")
       .then(res => setTrendingIdeas(res.data));
   }, []);
 

@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         // JWT token নাও
-        const res = await axios.post("http://localhost:5000/users/jwt", {
+        const res = await axios.post("https://ideavault-server-one.vercel.app/users/jwt", {
           email: currentUser.email,
         });
         localStorage.setItem("token", res.data.token);

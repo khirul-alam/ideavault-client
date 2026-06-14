@@ -35,7 +35,7 @@ const AddIdea = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/ideas", ideaData, {
+      await axios.post("https://ideavault-server-one.vercel.app/ideas", ideaData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Idea submitted successfully! 🎉");

@@ -12,7 +12,7 @@ const MyInteractions = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/comments/user/${user.email}`, {
+    axios.get(`https://ideavault-server-one.vercel.app/comments/user/${user.email}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setComments(res.data))

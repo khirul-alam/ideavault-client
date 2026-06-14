@@ -26,7 +26,7 @@ const Ideas = () => {
     if (selectedCategory !== "All") params.category = selectedCategory;
 
     const timer = setTimeout(() => {
-      axios.get("http://localhost:5000/ideas", { params })
+      axios.get("https://ideavault-server-one.vercel.app/ideas", { params })
         .then(res => setIdeas(res.data))
         .catch(() => setIdeas([]))
         .finally(() => setLoading(false));

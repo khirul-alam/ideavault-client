@@ -20,14 +20,14 @@ const IdeaDetails = () => {
 
   // Idea load
   useEffect(() => {
-    axios.get(`http://localhost:5000/ideas/${id}`)
+    axios.get(`https://ideavault-server-one.vercel.app/ideas/${id}`)
       .then(res => setIdea(res.data))
       .finally(() => setLoading(false));
   }, [id]);
 
   // Comments load
   const loadComments = () => {
-    axios.get(`http://localhost:5000/comments/${id}`)
+    axios.get(`https://ideavault-server-one.vercel.app/comments/${id}`)
       .then(res => setComments(res.data));
   };
 
@@ -37,7 +37,7 @@ const IdeaDetails = () => {
   const handleAddComment = async () => {
     if (!commentText.trim()) return toast.error("Comment cannot be empty!");
     try {
-      await axios.post("http://localhost:5000/comments", {
+      await axios.post("https://ideavault-server-one.vercel.app/comments", {
         ideaId: id,
         userEmail: user.email,
         userName: user.displayName,
@@ -55,7 +55,7 @@ const IdeaDetails = () => {
   // Edit Comment
   const handleEditComment = async (commentId) => {
     try {
-      await axios.put(`http://localhost:5000/comments/${commentId}`,
+      await axios.put(`https://ideavault-server-one.vercel.app/comments/${commentId}`,
         { commentText: editText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -70,7 +70,7 @@ const IdeaDetails = () => {
   // Delete Comment
   const handleDeleteComment = async (commentId) => {
     try {
-      await axios.delete(`http://localhost:5000/comments/${commentId}`,
+      await axios.delete(`https://ideavault-server-one.vercel.app/comments/${commentId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast.success("Comment deleted!");
